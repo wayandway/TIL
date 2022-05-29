@@ -2,6 +2,7 @@
 ## 목차
 1. [운영체제 이론](#1-운영체제-이론-⬆️목차)
 2. [해킹의 개요](#2-해킹의-개요-⬆️목차)
+3. [해킹의 기법](#3-해킹의-기법-⬆️목차)
 
 ---
 ## 1. 운영체제 이론 [⬆️](#목차)
@@ -196,6 +197,99 @@ I/O와 CPU의 속도 차이에 따른 비효율 문제 개선 <br>
 8. 다중 모니터 지원
 9. <span style="color:red">정보의 전송 통합</span> : 클립보드
 
+**Linux** <br>
+특징 (NOS, Network Operating System)  <br>
+1. 오픈소스 운영체제
+2. 다중 사용자 환경
+3. 다중작업 및 가상 터미널 환경
+4. GUI 방식의 X윈도우
+5. CPU와 무관한 운영체제
+6. 강력한 네트워크 환경
+7. 다양한 드라이브 지원
+
+버전
+1. Red hat ~ 페도라, <span style="color:red">센토스OS</span>
+2. Debian ~ ubuntu
+
+
 ---
 ## 2. 해킹의 개요 [⬆️](#목차)
+
+### 해킹의 정의
+**컴퓨터나 네트워크의 취약점을 이용해 불법적으로 접근하거나 시스템에 유해한 영향을 끼치는 행위**
+
+### 해킹의 원리
+**컴퓨터나 네트워크는 허가받지 않는 제 3자가 불법적으로 접근할 수 있는 취약점이 존재할 수 있으며, 해킹은 이를 이용함** <br>
+~ 시스템 오류에 의한 취약점, 보안취약점
+
+### 공격의 종류
+**소극적 공격**  도청, 모니터링 등 (Sniffing) <br>
+**적극적 공격**  명의 도용, 정보삽입 및 수정, 서비스 부인 등 
+
+### 해킹의 개념
+**<span style="color:blue">해킹 프로세스**</span> <br>
+<img src="img/HackingProcess.jpg">
+
+
+>**Unknown Attack**(Zero day) <br>
+
+>**APT(*Advanced Persistent Threat*)** ~ Target(Whale Fishing) <br>
+>1. 정보수집
+>2. 침입
+>3. C2 통신
+>4. 확산
+>5. 데이터 접근
+>6. 데이터 유출 or 파괴 <br>
+
+>*공격 전* <br>
+>정찰 <br>
+>무기화 및 전달 <br>
+
+>*공격 시도* <br>
+>악용과 설치 (Exploitation) <br>
+
+>*공격 후* <br>
+>명령과 제어 (C2)
+>탈출
+
+**<span style="color:blue">기본 정보수집**</span> <br>
+> *기본 정보수집의 의미* <br>
+>  모든 공격과정의 기본이 되는 단계로 수집된 기본정보의 수준에 따라 표적 시스템의 구체적 대상이나 공격방법이 결정 <br>
+> 공격자는 표적에 대한 직접 공격이나 우회공격을 할 수도 있기 때문에 표적 시스템 및 이를 포함한 네트워크 정보까지 수집함
+
+>*기본 정보수집의 범위* <br>
+>표적 시스템에 대한 OS 및 구동 서비스 정보 <br>
+>표적 시스템 까지의 경로 및 방화벽 등 보안장비 운영 유무
+
+>*기본 정보수집의 대표적인 방법* <br>
+>웹사이트, Whois, 다양한 명령어(nslookup, 디폴트 배너), 사회공학적 방법, 워다이얼링(Wardialing), 스캔
+
+**<span style="color:blue">스캐닝**</span> <br>
+>*스캐닝의 개요* <br>
+>표적이 되는 대상 시스템 및 네트워크의 정보를 도구를 사용해 탐색하는 것
+
+>*스캐닝의 종류* <br>
+>1. 호스트 스캐닝 ~ **ICMP(Internet Control Message Protocol) 스캐닝** : 인터넷 상의 호스트들에게 제어 메시지를 송신하도록 하여, 전송상의 에러나 예상치 못한 환경에 대한 정보를 제공할 목적으로 만들어진 프로토콜 (ping, ping sweep)  <br> 
+① Echo Request (type 8) + Echo Reply (type 0) <br>
+② Time Stampt Request (type 13) + Time stampt Reply (type 14) <br>
+③ Information Request (type 15) + Information Reply (type 16) <br>
+④ ICMP Address Mask Request (type 17) + ICMP Address Mask Reply (type 18)
+>2. 포트 스캐닝 ~ <br>
+>**TCP 스캐닝** <br>
+>SYN(Full) 스캐닝 : 3-way handshaking <br>
+>스텔스 스캐닝: TCP half-open 스캔(SYN/ACK에 대해 close 신호), SYN/ACK 스캔(SYN/ACK 신호 송신), FIN, NULL, X-mas <br>
+>**UDP 스캐닝** <br>
+
+>*워다디얼링(Wardialing)*
+
+---
+## 3. 해킹의 기법 [⬆️](#목차)
+
+
+
+
+
+
+
+
  
