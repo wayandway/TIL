@@ -1,4 +1,4 @@
-# 시스템 보안
+s# 시스템 보안
 ## 목차
 1. [운영체제 이론](#1-운영체제-이론-⬆️목차)
 2. [해킹의 개요](#2-해킹의-개요-⬆️목차)
@@ -284,6 +284,74 @@ I/O와 CPU의 속도 차이에 따른 비효율 문제 개선 <br>
 
 ---
 ## 3. 해킹의 기법 [⬆️](#목차)
+
+### ① 계정 크랙 공격 ~ 여전히 취약
+**무차별 공격(Brute Force Attack)** 시스템 또는 서비스의 ID, 패스워드에 대해서 도구를 이요해 ID, 패스워드를 자동 조합해 크랙하는 공격
+
+**사전 공격(Dictionary Attack)** 시스템 또는 서비스의 ID, 패스워드에 대해서 도구를 이용해 ID, 패스워드를 크랙하기 위해 ID와 패스워드가 될 가능성이 있는 단어들을 사전 파일로 만들어놓고 이 사전 파일의 단어를 대입해 크랙하는 공격
+
+### ② 시스템 오류를 이용한 공격
+**버퍼 오버플로우(Buffer overflow) 공격** 메모리에 할당된 버퍼의 양을 초과하는 데이터를 입력해 프로그램의 복귀 주소를 조작함으로써 해커가 원하는 코드를 실행하는 공격 ~ 스택 오버플로우, 힙 오버플로우 
+
+**포맷 스트링(Format String) 공격** 포맷 함수(ex: printf 함수)에서 인자 사용의 오류를 이용해 메모리의 내용을 변조하는 공격
+
+→ 솔루션 : ASLR
+
+### ③ 네트워크 공격
+**스니핑(Sniffing)** 네트워크 상의 패킷을 도청하는 행위로 암호화 되지 않은 펑문은 스니핑 공격에 매우 취약함 <br>
+~ Switch Jamming : 위조된 MAC 주소를 스위치 허브에 보내 주소 테이블을 오버플로우 시킴. <br>
+~ ARP Redirection : 공격자 호스트가 게이트웨이로 가장하여 ARP reply를 네트워크에 주기적으로 보냄으로써 모든 호스트는 공격자에게 패킷을 전송 <br>
+~ ICMP Redirect : 위조된 ICMP Redirect 메시지를 보내 공격자의 호스트를 라우터로 인식하도록 하여 패킷을 스니핑
+
+**스푸핑(Spoofing)** 자기 자신의 식별 정보를 속여서 서로 다른 대상 시스템을 공격하는 기법 <br>
+~ IP Spoofing : IP 주소를 속여서 다른 시스템을 공격 (*Proxy Server*)<br>
+~ ARP Spoofing : ARP 테이블 상의 정보를 위조해 공격대상 컴퓨터와 서버 사이의 정보 우회(MAC 위조) <br>
+~ E-mail Spoofing : 이메일 발송 시 송신자의 이메일 주소 위조 <br>
+~ WEB Spoofing : MITM(*Man in the Middle*) 공격 <br>
+~ DNS Spoofing : DNS 서버를 장악해 사용자가 요청하는 DNS 쿼리를 공격자가 원하는 주소로 안내하도록 위조 <br>
+~ DHCP Spoofing : DHCP 프로토콜이 제공하는 정보를 변조해 대상 클라이언트 PC를 속이는 공격방법 (*Dynamic Host Configuration Protocol*)
+
+**세션 하이재킹(Session Hijacking)** 상대방의 세션을 가로채는 지능적인 공격 기법 <br>
+~ TCP Session Hijacking : IP Spoofing과 스니핑 기법을 이용해 다른 사용자의 텔넷 세션을 가로챔 <br>
+~ WEB Sesiion Hijacking : 쿠키 변조를 활용한 Cookie Poisoning
+
+→ 솔루션 : ① Desynchronized 상태 탐지  ② Ack storm 상태 탐지 특정  ③ 세션에서 패킷 유실 및 재전송 증가 탐지 ④ 예상 밖의 접속 Reset → 결국 <span style="color:red">암호화</span>가 가장 효율적
+
+**서비스 거부 공격(*Denial of Service, DoS*)** 과도한 패킷 트래픽을 발생시켜서 시스템의 중요한 자원을 완전히 소진시킴으로써 시스템의 가용성을 침해하는 행위 <br>
+<span style="color:gray">~ Ping of Death : Ping은 최고 65,535byte로 크기가 제한되어 있으나 공격자가 이를 초과하는 큰 크기의 패킷을 보내 시스템 교착상태를 유발 <br></span>
+~ TearDrop Attack(= IP Fragment Packet Flooding) : IP 패킷 전송 시 분할과 재조합의 약점을 이용해 패킷 전송 시 offest을 조작해 시스템 교착상태 유발 <br>
+~ <span style="color:red">SYN Floods</span> : 대상 시스템에 연속적인 SYN을 보내 대기 큐를 넘치게 하여 시스템을 사용하지 못하도록 공격 <br>
+~ <span style="color:red">Smurf Attack</span>(ICMP echo reply complifier) : 공격대상 IP주소로 가장해 수많은 시스템에 ICMP 패킷 송신 시, 공격대상 호스트는 수많은 응답 패킷 수신으로 서비스 불능 <br>
+~ Land Attack : 출발지와 목적지의 IP주소, MAC 주소 동일로 무한루프
+
+>**NIP Amplification DDoS/DoS** ~ IP Spoofing <br>
+>**Memcashed Reflection DDoS/DoS** ~ IP Spoofing
+
+### ④ 기타 용어
+**피기백(Piggybacking)** 사회공학적 기법 <br>
+**레이스 컨디션** 바꿔치기 기법 <br>
+**살라미** <br>
+**논리 폭탄** 프로그램 오류 발생<br>
+**트랩도어** <br>
+**백도어** <br>
+**<span style="color:red">피싱(*Phishing*)</span>** 신뢰할만한 사이트로 믿게끔 위조사이트를 제작 후, 접속을 유도해 정보를 수집 <br>
+**<span style="color:red">파밍(*Pharming*)</span>** 공식적으로 운영되는 도메인 장치를 중간에 탈취해 사용자는 정상적인 웹주소를 입력해도 공격자가 위조한 도메인으로 연결 <br>
+**<span style="color:red">스미싱(*Smishing*)</span>** SMS + Phishing <br>
+**<span style="color:red">스피어 피싱(*Spear Phishing = Whale Phising*)</span>**  <br>
+**<span style="color:red">Covert Channel(=Lampson)</span>** <br>
+**<span style="color:red">스캔(Business Scan)</span>** 기업이 거래처와 주고받은 이메일 정보를 해킹/감청/도청해서 거래처로 가장해 무역 거래 대금을 가로채는 범죄<br>
+
+### ⑤ 애플리케이션 취약점을 이용한 공격
+**웹 어플리케이션**
+
+**일반 어플리케이션**
+
+**서버**
+
+**DB 취약점을 이용한 공격**
+
+### ⑥ 사회공학적 공격
+
 
 
 
