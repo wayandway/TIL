@@ -1,14 +1,13 @@
 # Today I Learned
 
 ## Reversing
----
-* 리버싱 핵심원리
+<img src="Reversing/img/ReversingCore.jpg" width="200">
+
+* [리버싱 핵심원리]()
 
 <br>
 
 ## Hacking & Security
----
-* 웹
-* Pwnable
-* 네트워크
+* [웹 보안]()
+
 
