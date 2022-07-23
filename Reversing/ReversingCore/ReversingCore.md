@@ -1,6 +1,9 @@
 # 리버싱 핵심원리
 
-### [1부 : 기초 리버싱](https://github.com/waeandway/TIL/blob/master/Reversing/ReversingCore/Chapter/01.md)
+### 1부 : 기초 리버싱
+
+[01 리버싱 스토리]()
+[01 리버싱 스토리]()
 
 
 
