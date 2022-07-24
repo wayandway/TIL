@@ -1,5 +1,7 @@
 # Today I Learned : Security 
 
+### 실습 내용은 [블로그](https://waeandway.tistory.com/)에 정리 중입니다.
+
 ## Reversing
 <img src="Reversing/img/ReversingCore.jpg" width="200" style="border: 3 solid black">
 
