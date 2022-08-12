@@ -15,5 +15,3 @@
 ## Assembly
 * [어셈블리어](https://github.com/waeandway/TIL/blob/master/Assembly/Assembly.md)
 
-## Secure Coding
-* [Java 시큐어코딩 가이드 정리](https://github.com/waeandway/TIL/blob/master/SecureCoding/JavaSecureCoding-Guide.md)
