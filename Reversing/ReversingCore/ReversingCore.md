@@ -18,3 +18,4 @@
 14 [실행 압축](https://github.com/waeandway/TIL/blob/master/Reversing/ReversingCore/Chapter/02_PE%20File%20Format/14.md)
 15 UPX 실행 압축된 notepad 디버깅 [실습]()
 16 [Base Relocation Table](https://github.com/waeandway/TIL/blob/master/Reversing/ReversingCore/Chapter/02_PE%20File%20Format/16.md)
+17 [실행파일에서 .reloc 섹션 제거하기](https://github.com/waeandway/TIL/blob/master/Reversing/ReversingCore/Chapter/02_PE%20File%20Format/17.md)
