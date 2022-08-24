@@ -95,11 +95,18 @@ ex) 128.0.0.1 (DEX) → 10000000.00000000.00000000.00000001 (BIN)
 TCP는 오류가 발생하면 데이터를 재전송할 수 있는 신뢰성 있는 연결지향형 프로토콜인 반면, **IP는 데이터가 제대로 수신되었는지 확인하는 기능이 없는 비연결형 프로토콜**이다. 비연결형 데이터그램 프로토콜은 **각 데이터그램을 독립적으로 처리하고 수신지까지 다른 경로로 전송**할 수 있다. 여러 송신지에 데이터그램을 보내면 **순서가 바뀌기도 하고 일부는 훼손**되기도 한다. **통신 접속 절차나 패킷 전체의 내용이 정상인지는 상위 계층인 TCP에서 확인**한다. <br>
 
 - **IP 헤더** <br>
-<img src = "img/IP-Header.png" width=500>
-
-
-
-
+<img src = "img/IP-Header.png" width=500> <br>
+Version Number : 버전 (IPv4) <br>
+Header Length : 5 (단위가 1byte) <br>
+Service Type : 잘 안 씀 (000000000) <br>
+Packet Length : 패킷 길이 <= 2^16 - 1 <br>
+Identification : 조각된 패킷의 기존 데이터 확인 <br>
+DF : Don't Fragment. 1로 설정되면 패킷을 분할하지 않으며, 대부분의 경우 1로 설정됨. <br>
+MF : More  Fragment. 0이면 조각의 끝, 1이면 끝이 아님. <br>
+Fragment Offset : 조각된 패킷의 상대위치 값 <br>
+Time To Live : 패킷의 생존가능 시간 (OS에서 정함) <br>
+Transport : 패킷을 전달할 상위 계층 프로토콜 (TCP or UDP) <br>
+Source Address, Destination Address : 송신지 IP주소, 수신지 IP주소
 
 4. 전송 계층 (Transport Layer)
 
