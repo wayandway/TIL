@@ -140,6 +140,32 @@ TCP 프토콜은 데이터 전송을 위해 **바이트 스트림(데이터)을 
 <img src = "img/Encapsulation.png" width=500> <br>
 
 - **TCP 헤더** <br>
+<img src = "img/TCP-Header.png" width=500> <br>
+Source Port : 송신지 포트 번호. 세그먼트를 전송하는 송신지 호스트에 있는 응용 프로그램의 포트 번호. <br>
+Destination Port : 수신지 포트 번호. 수신지 호스트에서 수행하는 프로세스가 사용하는 포트 번호. 대부분 잘 알려진 포트 번호.<br>
+Sequence Number : 세그먼트에 포함된 데이터의 첫 번째 바이트 스트림(데이터)에 부여된 것으로 32비트의 부호 없는 번호이다. 범위는 0 ~ 2^32 -1 이다. <br>
+Acknowlegement Number : 확인 응답 번호. 수신 시스템이 송신 시스템으로부터 수신하려는 바이트 스트림(데이터)의 번호이다. 이 번호는 (성공적으로 수신한 마지막 바이트의 순서 번호 + 1)이다. *ex) ACK Num = 5 이면 4번 바이트까진 데이터가 정상적으로 도착했다는 뜻이다.* <br>
+Data Offset(Header Length) : 데이터 오프셋(헤더 길이). TCP 헤더 길이를 4byte WORD 값으로 나타내며, 최소값으로 5가 세팅될 수 있다. (헤더 길이는 20~60byte가 될 수 있다) <br>
+Reserved : 6bit의 예약 필드는 나중에 사용하기 위한 예약된 필드이다. (거의 안쓰므로 000 000 으로 세팅되는 것이 대다수이다)<br>
+Code Bit(TCP Flags) : 연결의 제어 정보가 기록되며 각 비트들은 초기값이 0이고 비트가 활성화되면 1이 된다. (하단에 상세 설명) <br>
+Window : 상대 시스템이 유지해야 하는 바이트 단위의 윈도우 크기를 정의한다. <br>
+Checksum : 검사합. 헤드 부분의 오류를 검출하는 검사합 계산이 적용된다. <br>
+Urgent Pointer : 긴급 포인터. URG플래그가 세팅되면 해당 데이터의 마지막 바이트 순서번호(Sequence Number)는 Urgent Pointer + Sequence Number로 계산된다. <br>
+Options : 송신지에서 수신하고자 하는 세그먼트의 최대 크기
+
+
+코드 비트|설명
+:---:|:---:
+`URG`|**Urgent**  긴급한 데이터의 우선순위를 다른 데이터의 우선순위보다 높여 전송하기 위한 플래그
+`ACK`|<span style="color:red">**Acknowledgement**</span> 송신 측으로부터 패킷을 잘 받았다는 걸 알려주기 위한 플래그
+`PSH`|**Push** 데이터를 받는 즉시 7계층(Application-Layer)으로(5, 6 계층 생략) Push하는 플래그
+`RST`|**Reset** RST=1로 세팅되면 통신이 끊김
+`SYN`|<span style="color:red">**Synchronization**</span> 연결의 시작을 요청하는 플래그. 순서 번호와 함께 전송함
+`FIN`|**Final** 더 이상 전송할 데이터가 없음을 의미. 세션 연결을 종료시키겠다는 플래그
+
+- **3-way/4-way HandShaking & TCP 연결 관리** [상세 내용](https://waeandway.tistory.com/entry/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-3-way4-way-HandShaking-TCP-%EC%97%B0%EA%B2%B0) <br>
+
+
 
  
 
