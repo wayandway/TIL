@@ -17,4 +17,4 @@
 * [어셈블리어](https://github.com/waeandway/TIL/blob/master/Assembly/Assembly.md)
 
 ## CS
-* [Linux](https://github.com/waeandway/TIL/blob/master/Linux/Linux.md)
+* [Linux 명령어 정리](https://github.com/waeandway/TIL/blob/master/CS/LinuxCmd.md)
