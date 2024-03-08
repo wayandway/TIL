@@ -1,7 +1,7 @@
 # 📚 Today I Learned
-[`블로그`](https://velog.io/@wdy)
-## React
-* [리액트를 다루는 기술]()
+*~2022* <br>
+2024년부터는 [**블로그**](https://velog.io/@wayandway)에서 업로드 중입니다.
+
 
 ## Security
 ### Reversing
