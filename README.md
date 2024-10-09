@@ -8,6 +8,11 @@
 * [네트워크 이론](https://github.com/wayandway/TIL/blob/master/Security/Network-Security/Network.md)
 * [ARP Spoofing](https://github.com/wayandway/TIL/blob/master/Security/Network-Security/ARP-Spoofing.md)
 
+## Security
+* [리버스 엔지니어링](https://github.com/wayandway/TIL/blob/master/Security/Reversing/ReversingCore/ReversingCore.md)
+* [어셈블리](https://github.com/wayandway/TIL/blob/master/Security/Assembly/Assembly.md)
+* [네트워크 보안](https://github.com/wayandway/TIL/blob/master/Security/Network-Security/LIST.md)
+
 
 
 ## CS
