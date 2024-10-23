@@ -4,7 +4,7 @@
 
 01 [리버싱 스토리](https://github.com/wayandway/TIL/blob/master/Security/Reversing/ReversingCore/ReversingBasic/01.md) <br>
 02 [Hello World! 리버싱](https://github.com/wayandway/TIL/blob/master/Security/Reversing/ReversingCore/ReversingBasic/02.md) <br>
-03 [리틀 엔디언 표기법]https://github.com/wayandway/TIL/blob/master/Security/Reversing/ReversingCore/ReversingBasic/03.md) <br>
+03 [리틀 엔디언 표기법](https://github.com/wayandway/TIL/blob/master/Security/Reversing/ReversingCore/ReversingBasic/03.md) <br>
 04 [IA-32 Register 기본 설명](https://github.com/wayandway/TIL/blob/master/Security/Reversing/ReversingCore/ReversingBasic/04.md) <br>
 05 [스택](https://github.com/wayandway/TIL/blob/master/Security/Reversing/ReversingCore/ReversingBasic/05.md) <br>
 06 [abex crackme #1](https://github.com/wayandway/TIL/blob/master/Security/Reversing/ReversingCore/ReversingBasic/06.md) <br>
